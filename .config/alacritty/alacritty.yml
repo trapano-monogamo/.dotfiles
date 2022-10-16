@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 0.90
 
   # Startup Mode (changes require restart)
   #
@@ -118,7 +118,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: PerfectDOSVGA437 # Hack
+    family: Hack # PerfectDOSVGA437
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -129,7 +129,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: PerfectDOSVGA437 # Hack
+    family: Hack # PerfectDOSVGA437
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -140,7 +140,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: PerfectDOSVGA437 # Hack
+    family: Hack # PerfectDOSVGA437
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -151,13 +151,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: PerfectDOSVGA437 # Hack
+    family: Hack # PerfectDOSVGA437
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -189,13 +189,65 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
+# Colors
 colors:
+
+  # Colors (custom 1)
+  # # Default colors
+  # primary:
+  #   background: '#1d1f21'
+  #   foreground: '#c5c8c6'
+  # # Normal colors
+  # normal:
+  #   black:   '#272822'
+  #   red:     '#FF2642'
+  #   green:   '#A6E22E'
+  #   yellow:  '#FFEF45'
+  #   blue:    '#5689FF'
+  #   magenta: '#9055FF'
+  #   cyan:    '#A1EFE4'
+  #   white:   '#F8F8F2'
+  # # Bright colors
+  # bright:
+  #   black:   '#75715E'
+  #   red:     '#F92672'
+  #   green:   '#A6E22E'
+  #   yellow:  '#F4BF75'
+  #   blue:    '#66D9EF'
+  #   magenta: '#9055FF'
+  #   cyan:    '#A1EFE4'
+  #   white:   '#F9F8F5'
+  
+  # Colors (Andromeda - custom 2)
+  # Default colors
+  primary:
+    background: '#23262E'
+    foreground: '#FFE66D'
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#ee5d43'
+    green:   '#96E072'
+    yellow:  '#FFE66D'
+    blue:    '#7cb7ff'
+    magenta: '#ff00aa'
+    cyan:    '#00e8c6'
+    white:   '#ffffff'
+  # Bright colors
+  bright:
+    black:   '#000000'
+    red:     '#ee5d43'
+    green:   '#96E072'
+    yellow:  '#FFE66D'
+    blue:    '#7cb7ff'
+    magenta: '#ff00aa'
+    cyan:    '#00e8c6'
+    white:   '#ffffff'
+
   # Campbell (Windows 10 default)
   # primary:
   #   background: '#0c0c0c'
   #   foreground: '#cccccc'
-
   # # Normal colors
   # normal:
   #   black:      '#0c0c0c'
@@ -206,7 +258,6 @@ colors:
   #   magenta:    '#881798'
   #   cyan:       '#3a96dd'
   #   white:      '#cccccc'
-
   # # Bright colors
   # bright:
   #   black:      '#767676'
@@ -217,22 +268,22 @@ colors:
   #   magenta:    '#b4009e'
   #   cyan:       '#61d6d6'
   #   white:      '#f2f2f2'
-  
+
   # JellyBeans
   # primary:
-  #   background: '#161616'
+  #   background: '#202020'
   #   foreground: '#e4e4e4'
-
   # # Cursor volors
   # cursor:
   #   text: '#feffff'
-  #   cursor: '#ffb472'
+  #   # cursor: '#ffb472'
+  #   cursor: '#809999'
   # # Normal colors
   # normal:
   #   black:   '#a3a3a3'
   #   red:     '#e98885'
   #   green:   '#a3c38b'
-  #   yellow:  '#ffc68d'
+  #   yellow:  '#ff663d'
   #   blue:    '#a6cae2'
   #   magenta: '#e7cdfb'
   #   cyan:    '#00a69f'
@@ -253,97 +304,96 @@ colors:
   #   background: '#f6f6f6'
 
   # Gruvbox (Dark)
-  primary:
-    # hard contrast background - '#1d2021'
-    background:        &gruvbox_dark_bg '#282828'
-    # soft contrast background - '#32302f'
-    foreground:        '#ebdbb2'
-    bright_foreground: '#fbf1c7'
-    dim_foreground:    '#a89984'
-  cursor:
-    text:   CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text:   CellBackground
-    cursor: CellForeground
-      # search:
-      #   matches:
-      #     foreground: '#000000'
-      #     background: '#ffffff'
-      #   focused_match:
-      #    foreground: CellBackground
-      #    background: CellForeground
-      #   bar:
-      #     background: ''
-      #     foreground: ''
-      # line_indicator:
-      #   foreground: None
-      #   background: None
-      # selection:
-      #   text:       CellBackground
-      #   background: CellForeground
-      # bright:
-      #   black:   '#928374'
-      #   red:     '#fb4934'
-      #   green:   '#b8bb26'
-      #   yellow:  '#fabd2f'
-      #   blue:    '#83a598'
-      #   magenta: '#d3869b'
-      #   cyan:    '#8ec07c'
-      #   white:   '#ebdbb2'
-      # normal:
-      #   black:   *gruvbox_dark_bg
-      #   red:     '#cc241d'
-      #   green:   '#98971a'
-      #   yellow:  '#d79921'
-      #   blue:    '#458588'
-      #   magenta: '#b16286'
-      #   cyan:    '#689d6a'
-      #   white:   '#a89984'
-      # dim:
-      #   black:   '#32302f'
-      #   red:     '#9d0006'
-      #   green:   '#79740e'
-      #   yellow:  '#b57614'
-      #   blue:    '#076678'
-      #   magenta: '#8f3f71'
-      #   cyan:    '#427b58'
-      #   white:   '#928374'
-      # indexed_colors:
-      #   - { index:  66, color: '#a89984' }
-      #   - { index:  72, color: '#689d6a' }
-      #   - { index: 106, color: '#98971a' }
-      #   - { index: 108, color: '#8ec07c' }
-      #   - { index: 109, color: '#83a598' }
-      #   - { index: 124, color: '#cc241d' }
-      #   - { index: 132, color: '#b16286' }
-      #   - { index: 142, color: '#b8bb26' }
-      #   - { index: 166, color: '#d65d0e' }
-      #   - { index: 167, color: '#fb4934' }
-      #   - { index: 172, color: '#d79921' }
-      #   - { index: 175, color: '#d3869b' }
-      #   - { index: 208, color: '#fe8019' }
-      #   - { index: 214, color: '#fabd2f' }
-      #   - { index: 223, color: '#ebdbb2' }
-      #   - { index: 229, color: '#fbf1c7' }
-      #   - { index: 234, color: '#1d2021' }
-      #   - { index: 235, color: '#282828' }
-      #   - { index: 236, color: '#32302f' }
-      #   - { index: 237, color: '#3c3836' }
-      #   - { index: 239, color: '#504945' }
-      #   - { index: 241, color: '#665c54' }
-      #   - { index: 243, color: '#7c6f64' }
-      #   - { index: 245, color: '#928374' }
-      #   - { index: 246, color: '#a89984' }
-      #   - { index: 248, color: '#bdae93' }
-      #   - { index: 250, color: '#d5c4a1' }
+  # primary:
+  #   # hard contrast background - '#1d2021'
+  #   background:        &gruvbox_dark_bg '#282828'
+  #   # soft contrast background - '#32302f'
+  #   foreground:        '#ebdbb2'
+  #   bright_foreground: '#fbf1c7'
+  #   dim_foreground:    '#a89984'
+  # cursor:
+  #   text:   CellBackground
+  #   cursor: CellForeground
+  # vi_mode_cursor:
+  #   text:   CellBackground
+  #   cursor: CellForeground
+  #     # search:
+  #     #   matches:
+  #     #     foreground: '#000000'
+  #     #     background: '#ffffff'
+  #     #   focused_match:
+  #     #    foreground: CellBackground
+  #     #    background: CellForeground
+  #     #   bar:
+  #     #     background: ''
+  #     #     foreground: ''
+  #     # line_indicator:
+  #     #   foreground: None
+  #     #   background: None
+  #     # selection:
+  #     #   text:       CellBackground
+  #     #   background: CellForeground
+  #     # bright:
+  #     #   black:   '#928374'
+  #     #   red:     '#fb4934'
+  #     #   green:   '#b8bb26'
+  #     #   yellow:  '#fabd2f'
+  #     #   blue:    '#83a598'
+  #     #   magenta: '#d3869b'
+  #     #   cyan:    '#8ec07c'
+  #     #   white:   '#ebdbb2'
+  #     # normal:
+  #     #   black:   *gruvbox_dark_bg
+  #     #   red:     '#cc241d'
+  #     #   green:   '#98971a'
+  #     #   yellow:  '#d79921'
+  #     #   blue:    '#458588'
+  #     #   magenta: '#b16286'
+  #     #   cyan:    '#689d6a'
+  #     #   white:   '#a89984'
+  #     # dim:
+  #     #   black:   '#32302f'
+  #     #   red:     '#9d0006'
+  #     #   green:   '#79740e'
+  #     #   yellow:  '#b57614'
+  #     #   blue:    '#076678'
+  #     #   magenta: '#8f3f71'
+  #     #   cyan:    '#427b58'
+  #     #   white:   '#928374'
+  #     # indexed_colors:
+  #     #   - { index:  66, color: '#a89984' }
+  #     #   - { index:  72, color: '#689d6a' }
+  #     #   - { index: 106, color: '#98971a' }
+  #     #   - { index: 108, color: '#8ec07c' }
+  #     #   - { index: 109, color: '#83a598' }
+  #     #   - { index: 124, color: '#cc241d' }
+  #     #   - { index: 132, color: '#b16286' }
+  #     #   - { index: 142, color: '#b8bb26' }
+  #     #   - { index: 166, color: '#d65d0e' }
+  #     #   - { index: 167, color: '#fb4934' }
+  #     #   - { index: 172, color: '#d79921' }
+  #     #   - { index: 175, color: '#d3869b' }
+  #     #   - { index: 208, color: '#fe8019' }
+  #     #   - { index: 214, color: '#fabd2f' }
+  #     #   - { index: 223, color: '#ebdbb2' }
+  #     #   - { index: 229, color: '#fbf1c7' }
+  #     #   - { index: 234, color: '#1d2021' }
+  #     #   - { index: 235, color: '#282828' }
+  #     #   - { index: 236, color: '#32302f' }
+  #     #   - { index: 237, color: '#3c3836' }
+  #     #   - { index: 239, color: '#504945' }
+  #     #   - { index: 241, color: '#665c54' }
+  #     #   - { index: 243, color: '#7c6f64' }
+  #     #   - { index: 245, color: '#928374' }
+  #     #   - { index: 246, color: '#a89984' }
+  #     #   - { index: 248, color: '#bdae93' }
+  #     #   - { index: 250, color: '#d5c4a1' }
 
   # Colors (Monokai Pro)
   # Default colors
   # primary:
   #   background: '#2D2A2E'
   #   foreground: '#FCFCFA'
-
   # # Normal colors
   # normal:
   #   black:   '#403E41'
@@ -354,7 +404,6 @@ colors:
   #   magenta: '#AB9DF2'
   #   cyan:    '#78DCE8'
   #   white:   '#FCFCFA'
-
   # # Bright colors
   # bright:
   #   black:   '#727072'
@@ -367,11 +416,10 @@ colors:
   #   white:   '#FCFCFA'
 
   # Colors (Monokai Dark)
-  # Default colors
+  # # Default colors
   # primary:
   #   background: '#272822'
   #   foreground: '#F8F8F2'
-
   # # Normal colors
   # normal:
   #  black:   '#272822'
@@ -382,7 +430,6 @@ colors:
   #  magenta: '#AE81FF'
   #  cyan:    '#A1EFE4'
   #  white:   '#F8F8F2'
-
   # # Bright colors
   # bright:
   #  black:   '#75715E'
@@ -393,11 +440,10 @@ colors:
   #  magenta: '#AE81FF'
   #  cyan:    '#A1EFE4'
   #  white:   '#F9F8F5'
-
-  # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  # # Default colors
+  # primary:
+  #   background: '#1d1f21'
+  #   foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #

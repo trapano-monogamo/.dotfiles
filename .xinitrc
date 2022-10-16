@@ -69,5 +69,7 @@ nitrogen --restore &
 # dwm >/dev/null 2>&1
 # i3 >/dev/null 2>&1
 
+/home/noemi/battery_message.sh &
+
 # exec dwm
 exec i3
