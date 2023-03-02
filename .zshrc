@@ -40,17 +40,42 @@ check_git_branch() {
 	fi
 }
 
-PROMPT='$(check_exit_code)%{$fg[cyan]%}%c$(check_git_branch)%{$fg[blue]%}λ %{$fg[white]%}'
+# λ
+PROMPT='$(check_exit_code)%{$fg[cyan]%}%c$(check_git_branch)%{$fg[blue]%}$ %{$fg[white]%}'
 
+alias ls="ls --color=auto"
+alias vim="vim -u ~/.vimrc"
 alias vi="nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # autoload -U promptinit; promptinit
 # prompt spaceship
 
+export startwm=1
+export PATH=$PATH:/home/noemi/julia-1.8.5/bin
+export QT_PLUGIN_PATH=/home/noemi/anaconda3/plugins
+export MONITOR=override-value polybar mybar
 export GTK_THEME=Adwaita:dark
 export EDITOR=nvim
 export VISUAL=nvim
 export LESSHISTFILE="-" # deletes file after creation
 
 [ -f "/home/noemi/.ghcup/env" ] && source "/home/noemi/.ghcup/env" # ghcup-env
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/noemi/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/noemi/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/noemi/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/noemi/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

@@ -33,43 +33,32 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-
-
 # ~ PERSONAL STUFF ~
 
-
-# status bar:
-# 	1. dwmblocks
-# 	2. dwmstatus
-#	3. my custom status bar (xsetroot)
-# 	4. dwm-bar
-# dwmstatus 2>&1 >/dev/null &
-# ./mstatus.sh 2>&1 >/dev/null &
-# dwmblocks 2>&1 >/dev/null &
-# ./suckless/dwm-bar/dwm_bar.sh &
-
-# i3 blocks
-
-#setxkbmap -layout us -option ctrl:nocaps &
-#setxkbmap -layout us -option shift_caps_toggle:caps_toggle &
-# setxkbmap -layout us -option ctrl:swapcaps
 setxkbmap -layout "us,us" -variant ",dvp" -option "ctrl:swapcaps" -option "grp:ralt_rshift_toggle"
-
+# keypress repeat rate
 xset r rate 200 40
 
-# compositor
-picom -f &
+# /home/noemi/battery_message.sh &
 
-# wallpaper
-nitrogen --restore &
 
-# audio
-/usr/bin/start-pulseaudio-x11 &
+if [ "${startwm}" -eq "1" ]; then
 
-# dwm >/dev/null 2>&1
-# i3 >/dev/null 2>&1
+	picom -f & # compositor
+	nitrogen --restore &
+	/usr/bin/start-pulseaudio-x11 &
 
-/home/noemi/battery_message.sh &
+	exec i3
 
-# exec dwm
-exec i3
+else
+
+	# GNOME
+	# export XDG_SESSION_TYPE=x11
+	# export GDK_BACKEND=x11
+	# exec gnome-session
+	
+	# PLASMA
+	export DESKTOP_SESSION=plasma
+	exec startplasma-x11
+
+fi

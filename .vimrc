@@ -6,10 +6,17 @@ filetype plugin on
 
 set splitright
 set splitbelow
-
 set nowrap
+set tabstop=4
+set number
 
+set background=dark
+colorscheme default
+
+" set termguicolors
 " set cursorline
+highlight! CursorLine ctermbg=none
+highlight! Visual ctermbg=0a0a0a
 
 
 
@@ -21,8 +28,11 @@ set nowrap
 set path+=**
 
 set wildmenu
+set wildoptions+=pum
 
 set is
+set nohls
+
 
 " ctags creates a 'tags' file which programs (included vim) searches for
 " in order to recognize tags (mainly words) through all files in the specified path.
@@ -30,7 +40,7 @@ set is
 " keybindings:
 " 	C-]		= goto definition
 "	g C-]	= list all references
-"	C-t	= (after previous tag search) jump back to previous tag found
+"	C-t		= (after previous tag search) jump back to previous tag found
 command! MakeTags !ctags -R .
 set tags+=./vim/tags
 
@@ -60,6 +70,14 @@ let g:netrw_liststyle=3		" tree list style
 
 
 
+call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+call plug#end()
+
+
+
 " ..:: snippets ::..
 
 " nnoremap will execute the command bound to ',rustmain'. (',' is just a prefix, like the leader key '\', so vim won't execute 'r' then 'u' and so on)
@@ -67,13 +85,22 @@ let g:netrw_liststyle=3		" tree list style
 " <CR> is 'return' but inside : mode (command mode) so executes the command. Everything after this will be the key command
 " -1 moves cursor back
 " 'read' yanks the content of the specified file at the cursor location
-nnoremap ,rustmain :-1read $HOME/.vim/snippets/.rustmain<CR>o
+" nnoremap <leader>rustmain :-1read $HOME/.vim/snippets/.rustmain<CR>o
 
-nnoremap \n :bnext<CR>
-nnoremap \vr+ :vertical resize +10<CR>
-nnoremap \vr- :vertical resize -10<CR>
-nnoremap \hr+ :resize +3<CR>
-nnoremap \hr- :resize -3<CR>
+let mapleader = " "
+
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+
+nnoremap <leader>e :Lex 12<CR>
+nnoremap <leader>f :Files<CR>
+
+nnoremap <C-Right> :vertical resize +2<CR>
+nnoremap <C-Left> :vertical resize -2<CR>
+nnoremap <C-Down> :resize +2<CR>
+nnoremap <C-Up> :resize -2<CR>
+
+inoremap ,. <ESC>
 
 " TODO: write functions language-wise to check if line is already commented,
 " and in that case uncomment them.
@@ -92,17 +119,15 @@ autocmd FileType python nnoremap \c I# <ESC>
 
 " ..:: prettyfy vim ::..
 
-colorscheme slate
-
 function! GitBranch()
 	let branch_name = system('git branch 2>/dev/null | grep *')
-	return "" + branch_name
+	return "" . branch_name
 endfunction
 
 set laststatus=2 " status line enabled all the time
 
 " emtpy it and then configure it
 set statusline=
-set statusline+=\ %h\ %f\ %m
-set statusline+=\ %p%{'%'}\ %l:%L\ %c
-set statusline+=\ %{GitBranch()}
+set statusline=%f\ %m\ %h%=%p%{'%'}\ [%l:%c]
+" set statusline=b:%n\ %f%R%Y%=%m[row\ %l/%L,\ column\ %v\ (%c)]
+" set statusline+=\ %{GitBranch()}
