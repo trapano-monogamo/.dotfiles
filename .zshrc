@@ -63,7 +63,7 @@ PROMPT='$(check_exit_code)%{$fg[cyan]%}%c$(check_git_branch)%{$fg[blue]%}$ %{$fg
 
 alias ls="ls --color=auto"
 alias vi="nvim"
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" # https://www.atlassian.com/git/tutorials/dotfiles
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" # https://www.atlassian.com/git/tutorials/dotfiles
 
 export EDITOR=nvim
 export VISUAL=nvim
