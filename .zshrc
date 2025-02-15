@@ -28,13 +28,6 @@ compinit
 # End of lines added by compinstall
 
 
-# previous prompts
-
-# PROMPT="%F{green}%n%f@%F{green}%m%f:%F{yellow}%c%f$ "
-# PROMPT="%F{032}[%f%F{007}%n%f%F{yellow}@%f%F{007}%m%f%F{032}]%f %F{yellow}%c%f $ "
-# PROMPT='$(check_exit_code)%F{032}[%f%F{007}n%f%F{yellow}@%f%F{007}a%f%F{032}]%f %F{yellow}%c%f $ '
-# PROMPT='%{$fg[white]%}┏━[%{$fg[yellow]%}%c%{$fg[white]%}] $(check_exit_code)$(check_git_branch)${NEWLINE}┗━[%{$fg[blue]%}λ%{$fg[white]%}] '
-
 setopt PROMPT_SUBST
 autoload -U colors && colors
 NEWLINE=$'\n'
@@ -59,7 +52,14 @@ check_git_branch() {
 
 
 # λ
-PROMPT='$(check_exit_code)%{$fg[cyan]%}%c$(check_git_branch)%{$fg[blue]%}$ %{$fg[default]%}'
+
+# previous prompts
+
+# PROMPT="%F{green}%n%f@%F{green}%m%f:%F{yellow}%c%f$ "
+# PROMPT="%F{032}[%f%F{007}%n%f%F{yellow}@%f%F{007}%m%f%F{032}]%f %F{yellow}%c%f $ "
+# PROMPT='$(check_exit_code)%F{032}[%f%F{007}n%f%F{yellow}@%f%F{007}a%f%F{032}]%f %F{yellow}%c%f $ '
+# PROMPT='%{$fg[white]%}┏━[%{$fg[yellow]%}%c%{$fg[white]%}] $(check_exit_code)$(check_git_branch)${NEWLINE}┗━[%{$fg[blue]%}λ%{$fg[white]%}] '
+PROMPT='$(check_exit_code)%{$fg[cyan]%}%~$(check_git_branch)%{$fg[blue]%}$ %{$fg[default]%}'
 
 alias ls="ls --color=auto"
 alias vi="nvim"
