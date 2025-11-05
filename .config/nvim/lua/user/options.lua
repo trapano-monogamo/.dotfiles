@@ -48,7 +48,8 @@ syntax on
 
 -- COLORSCHEME
 
-local colorscheme = "gruber-darker"
+-- sorbet (dark purple-ish with green), gruber-darker (tsoding), wildcharm (dark black and purple)
+local colorscheme = "quiet"
 vim.opt.termguicolors = true
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

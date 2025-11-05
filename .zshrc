@@ -68,8 +68,14 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" # htt
 export EDITOR=nvim
 export VISUAL=nvim
 
+export PATH=$PATH:$HOME/.elan/bin
+
 # fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ghcup-env
 [ -f "/home/chiara/.ghcup/env" ] && . "/home/chiara/.ghcup/env"
+
+
+# fortune | cowsay -r -C
+# cowsay I use arch btw.

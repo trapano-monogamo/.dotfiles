@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 -- INSERT MODE --
 
 keymap("i", ",.", "<ESC>", opts)
+keymap("i", "<C-e>", "<ESC>", opts)
 
 
 -- NORMAL MODE --
@@ -40,6 +41,7 @@ keymap("v", ">", ">gv", opts)
 -- TERMINAL MODE --
 
 keymap("t", "<ESC>", "<C-\\><C-n>", opts)
+keymap("t", "<C-e>", "<C-\\><C-n>", opts)
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>", opts)
 
 
